@@ -1,0 +1,141 @@
+﻿<Page x:Class="Voltas_WIP.Masters.ShiftMaster"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Voltas_WIP.Masters"
+      Loaded="Window_Loaded" KeyDown="Window_KeyDown" Unloaded="Page_Unloaded" Title="Shiftmaster"
+      Style="{StaticResource PageStyle}">
+    <Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextDecorations="UNDERLINE" Text="SHIFT DEFINATION" HorizontalAlignment="Center"
+                 FontFamily="Times New Roman" FontSize="23" Margin="5" Foreground="OrangeRed" FontWeight="ExtraBold"/>
+        </Grid>
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="7,70,7,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="540"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="{Binding}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding}"/>
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource BorderStyle}" VerticalAlignment="Top" HorizontalAlignment="Center"
+              Grid.Column="0" Grid.Row="0">
+                <Grid Name="grid1" Margin="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox x:Name="cmbshiftname" Grid.Column="1" Grid.ColumnSpan="7">
+                        <ComboBoxItem>First Shift</ComboBoxItem>
+                        <ComboBoxItem>Second Shift</ComboBoxItem>
+                        <ComboBoxItem>Third Shift</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtstime1" Grid.Column="1" Grid.Row="1"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtstime2" Grid.Column="3" Grid.Row="1"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtstime3" Grid.Column="5" Grid.Row="1"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtstime4" Grid.Column="7" Grid.Row="1"
+                   MaxLength="2"/>
+                    <ComboBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="cmbBreak" Grid.Column="1" Grid.ColumnSpan="7"
+                    Grid.Row="2">
+                        <ComboBoxItem>Break1</ComboBoxItem>
+                        <ComboBoxItem>Break2</ComboBoxItem>
+                        <ComboBoxItem>Break3</ComboBoxItem>
+                        <ComboBoxItem>Break4</ComboBoxItem>
+                        <ComboBoxItem>Break5</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtB1" Grid.Column="1" Grid.Row="3"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtB2" Grid.Column="3" Grid.Row="3"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtB3" Grid.Column="5" Grid.Row="3"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtB4" Grid.Column="7" Grid.Row="3"
+                   MaxLength="2"/>
+                    <TextBox PreviewTextInput="Txtstime1_PreviewTextInput" x:Name="txtwrkhrs" Grid.Column="1" Grid.Row="4"
+                   Grid.ColumnSpan="7" MaxLength="2"/>
+                    <ComboBox x:Name="cmbstatus" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="7">
+                        <ComboBoxItem Content="Active"/>
+                        <ComboBoxItem Content="Not Active"/>
+                    </ComboBox>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Shift Name:"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Shift Time :"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Break :"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Break Time :"/>
+                    <Label Grid.Row="4" Grid.Column="0" Content="Working Hrs :"/>
+                    <Label Grid.Row="5" Grid.Column="0" Content="Status :"/>
+                    <Label Grid.Row="3" Grid.Column="2" Content=":"/>
+                    <Label Grid.Row="3" Grid.Column="6" Content=":"/>
+                    <Label Grid.Row="1" Grid.Column="2" Content=":"/>
+                    <Label Grid.Row="1" Grid.Column="6" Content=":"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource BorderStyle}" VerticalAlignment="Top" HorizontalAlignment="Center"
+              Margin="0,240,0,0" Grid.Column="0" Grid.Row="0">
+                <Grid Margin="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="btnSave_Click" x:Name="btnSave" Content="SAVE" ToolTip="Press Alt+S for Save"/>
+                    <Button Click="btnUpdate_Click" x:Name="btnUpdate" Content="UPDATE" ToolTip="Press Alt+U for Update"
+                  Grid.Column="1"/>
+                    <Button Click="btnDelete_Click" x:Name="btnDelete" Content="DELETE" ToolTip="Press Alt+D for Delete"
+                  Grid.Column="2"/>
+                    <Button Click="btnClear_Click" x:Name="btnClear" Content="CLEAR" ToolTip="Press Alt+C for Clear"
+                  Grid.Column="3"/>
+                    <Button Click="btnExit_Click" x:Name="btnExit" Content="EXIT" ToolTip="Press Alt+B for Back"
+                  Grid.Column="4"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource BorderStyle}" Margin="0,0,0,10" VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="2">
+                <Grid Margin="7">
+                    <DataGrid SelectionChanged="dvgMasterDeatils_SelectionChanged" x:Name="dvgMasterDeatils" ColumnWidth="*"
+                    ToolTip="Single selection is for edit all columns and multiple selection is for delete data">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="auto" Header="  SL.NO  " ElementStyle="{StaticResource WrapText}" Binding="{Binding SLNO}"/>
+                            <DataGridTextColumn Width="auto" Header="  SHIFT NAME " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding ShiftName}"/>
+                            <DataGridTextColumn Width="auto" Header="  SHIFT TIME  " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding ShiftTime}"/>
+                            <DataGridTextColumn Width="auto" Header="  BREAK " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding ShiftBreak}"/>
+                            <DataGridTextColumn Width="auto" Header="  BREAK TIME  " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding BreakTime}"/>
+                            <DataGridTextColumn Width="auto" Header=" WORKING HRS " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding WorkingHrs}"/>
+                            <DataGridTextColumn Width="auto" Header=" STATUS " ElementStyle="{StaticResource WrapText}" Binding="{Binding Status}"/>
+                            <DataGridTextColumn Width="auto" Header="  REFNO  " Visibility="Hidden" ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding RefNo}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

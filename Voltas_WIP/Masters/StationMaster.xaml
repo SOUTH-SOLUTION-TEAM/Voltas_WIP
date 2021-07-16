@@ -1,0 +1,99 @@
+﻿<Page x:Class="Voltas_WIP.Masters.StationMaster"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Voltas_WIP.Masters"
+      Loaded="Window_Loaded" KeyDown="Window_KeyDown" Unloaded="Page_Unloaded" Title="StationMaster"
+      Style="{StaticResource PageStyle}">
+    <Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextDecorations="UNDERLINE" Text="STATION DEFINATION" HorizontalAlignment="Center"
+                 FontFamily="Times New Roman" FontSize="23" Margin="5" Foreground="OrangeRed" FontWeight="ExtraBold"/>
+        </Grid>
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="7,70,7,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="540"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="{Binding}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding}"/>
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource BorderStyle}" VerticalAlignment="Top" HorizontalAlignment="Center"
+              Grid.Column="0" Grid.Row="0">
+                <Grid Name="grid1" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="121"/>
+                        <ColumnDefinition Width="291"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="txtstationName" Grid.Column="1" Grid.Row="1"/>
+                    <Label Grid.Row="0" Content="Station No :"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Station Name :"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Process :"/>
+                    <TextBox x:Name="txtProcess" Grid.Column="1" Grid.Row="2"/>
+                    <ComboBox x:Name="cmbStationNo" Grid.Column="1">
+                        <ComboBoxItem>STATION 1</ComboBoxItem>
+                        <ComboBoxItem>STATION 2</ComboBoxItem>
+                        <ComboBoxItem>STATION 3</ComboBoxItem>
+                        <ComboBoxItem>STATION 4</ComboBoxItem>
+                        <ComboBoxItem>STATION 5</ComboBoxItem>
+                        <ComboBoxItem>STATION 6</ComboBoxItem>
+                        <ComboBoxItem>STATION 7</ComboBoxItem>
+                        <ComboBoxItem>STATION 8</ComboBoxItem>
+                        <ComboBoxItem>STATION 9</ComboBoxItem>
+                        <ComboBoxItem>STATION 10</ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource BorderStyle}" VerticalAlignment="Top" HorizontalAlignment="Center"
+              Margin="0,130,0,0" Grid.Column="0" Grid.Row="0">
+                <Grid Margin="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="btnSave_Click" x:Name="btnSave" Content="SAVE" ToolTip="Press Alt+S for Save"/>
+                    <Button Click="btnUpdate_Click" x:Name="btnUpdate" Content="UPDATE" ToolTip="Press Alt+U for Update"
+                  Grid.Column="1"/>
+                    <Button Click="btnDelete_Click" x:Name="btnDelete" Content="DELETE" ToolTip="Press Alt+D for Delete"
+                  Grid.Column="2"/>
+                    <Button Click="btnClear_Click" x:Name="btnClear" Content="CLEAR" ToolTip="Press Alt+C for Clear"
+                  Grid.Column="3"/>
+                    <Button Click="btnExit_Click" x:Name="btnExit" Content="EXIT" ToolTip="Press Alt+B for Back"
+                  Grid.Column="4"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource BorderStyle}" Margin="0,0,0,10" VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="2">
+                <Grid Margin="7">
+                    <DataGrid SelectionChanged="dvgMasterDeatils_SelectionChanged" x:Name="dvgMasterDeatils"
+                    ToolTip="Single selection is for edit all columns and multiple selection is for delete data">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="auto" Header="  SL.NO  " ElementStyle="{StaticResource WrapText}" Binding="{Binding SLNO}"/>
+                            <DataGridTextColumn Width="auto" Header="  STATION NO " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding StationNo}"/>
+                            <DataGridTextColumn Width="auto" Header="  STATION NAME  " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding StationName}"/>
+                            <DataGridTextColumn Width="auto" Header="  PROCESS  " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding Process}"/>
+                            <DataGridTextColumn Width="auto" Header="  REFNO  " Visibility="Hidden" ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding RefNo}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

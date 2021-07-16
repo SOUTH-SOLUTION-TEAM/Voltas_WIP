@@ -1,0 +1,96 @@
+﻿<Page x:Class="Voltas_WIP.Masters.IPConfigurationMaster"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:Voltas_WIP.Masters"
+      Loaded="Window_Loaded" KeyDown="Window_KeyDown" Unloaded="Page_Unloaded" Title="IPconfiguration"
+      Style="{StaticResource PageStyle}">
+    <Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextDecorations="UNDERLINE" Text="IP AND PORT DEFINATION" HorizontalAlignment="Center"
+                 FontFamily="Times New Roman" FontSize="23" Margin="5" Foreground="OrangeRed" FontWeight="ExtraBold"/>
+        </Grid>
+        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="7,70,7,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="540"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="{Binding}"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding}"/>
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource BorderStyle}" VerticalAlignment="Top" HorizontalAlignment="Center"
+              Grid.Column="0" Grid.Row="0">
+                <Grid Name="grid1" Margin="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="250"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox x:Name="cmbhardwaretype" Grid.Column="1" Grid.Row="0">
+                        <ComboBoxItem Content="PRINTER"/>
+                        <ComboBoxItem Content="SCANNER"/>
+                        <ComboBoxItem Content="PLC"/>
+                    </ComboBox>
+                    <TextBox Name="txtipaddress" Grid.Row="1" Grid.Column="4"/>
+                    <TextBox x:Name="txtportno" Grid.Column="1" Grid.Row="2"/>
+                    <ComboBox x:Name="cmbstation" Grid.Column="1" Grid.Row="3"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Hardware Type:"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="IP address:"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Port No :"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Stationno :"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource BorderStyle}" VerticalAlignment="Top" HorizontalAlignment="Center"
+              Margin="0,170,0,0" Grid.Column="0" Grid.Row="0">
+                <Grid Margin="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="105"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="btnSave_Click" x:Name="btnSave" Content="SAVE" ToolTip="Press Alt+S for Save"/>
+                    <Button Click="btnUpdate_Click" x:Name="btnUpdate" Content="UPDATE" ToolTip="Press Alt+U for Update"
+                  Grid.Column="1"/>
+                    <Button Click="btnDelete_Click" x:Name="btnDelete" Content="DELETE" ToolTip="Press Alt+D for Delete"
+                  Grid.Column="2"/>
+                    <Button Click="btnClear_Click" x:Name="btnClear" Content="CLEAR" ToolTip="Press Alt+C for Clear"
+                  Grid.Column="3"/>
+                    <Button Click="btnExit_Click" x:Name="btnExit" Content="EXIT" ToolTip="Press Alt+B for Back"
+                  Grid.Column="4"/>
+                </Grid>
+            </Border>
+            <Border Style="{StaticResource BorderStyle}" Margin="0,0,0,10" VerticalAlignment="Stretch"
+              HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="2">
+                <Grid Margin="7">
+                    <DataGrid SelectionChanged="dvgMasterDeatils_SelectionChanged" x:Name="dvgMasterDeatils"
+                    ToolTip="Single selection is for edit all columns and multiple selection is for delete data">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="auto" Header="  SL.NO  " ElementStyle="{StaticResource WrapText}" Binding="{Binding SLNO}"/>
+                            <DataGridTextColumn Width="auto" Header="  HARDWARE TYPE " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding HardwareType}"/>
+                            <DataGridTextColumn Width="auto" Header="  IP ADDRESS  " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding IPAddress}"/>
+                            <DataGridTextColumn Width="auto" Header=" PORT NO " ElementStyle="{StaticResource WrapText}" Binding="{Binding PortNo}"/>
+                            <DataGridTextColumn Width="auto" Header="  STATION " ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding StationNo}"/>
+                            <DataGridTextColumn Width="auto" Header="  REFNO  " Visibility="Hidden" ElementStyle="{StaticResource WrapText}"
+                                  Binding="{Binding RefNo}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,96 @@
+﻿<Page x:Class="Voltas_WIP.Transaction.Serial_and_MRP_Label"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Voltas_WIP.Transaction"
+      Loaded="Page_Loaded" Title="Serial_and_MRP_Label">
+    <Grid Background="Black">
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock TextDecorations="UNDERLINE" Text="SERIAL AND MRP LABEL PRINT" HorizontalAlignment="Center"
+                 FontFamily="Times New Roman" FontSize="23" Margin="5" Foreground="OrangeRed" FontWeight="ExtraBold"/>
+        </Grid>
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="220"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="SCANNER:" HorizontalAlignment="Right"
+                 FontFamily="Times New Roman" FontSize="23" Margin="5" Foreground="Aqua" FontWeight="ExtraBold"/>
+            <TextBlock Name="txtScanner" Grid.Column="1" Grid.Row="0" Text="" HorizontalAlignment="Left"
+                 FontFamily="Times New Roman" FontSize="23" Margin="5" Foreground="Aquamarine"
+                 FontWeight="ExtraBold"/>
+        </Grid>
+        <Border BorderBrush="White" Style="{StaticResource BorderStyle}" VerticalAlignment="Top"
+            HorizontalAlignment="Center" Margin="0,70,0,0">
+            <Grid x:Name="grid1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <ComboBox SelectionChanged="CmbProductCode_SelectionChanged" x:Name="cmbBatchNo"
+                  Style="{StaticResource ComboBoxStyleforBlack}" Grid.Column="1"/>
+                <TextBox x:Name="txtProductName" IsReadOnly="true" Foreground="White" BorderBrush="White"
+                 Background="Transparent" Grid.Column="3" Grid.Row="0"/>
+                <TextBox x:Name="txtModelNo" IsReadOnly="true" Foreground="White" BorderBrush="White"
+                 Background="Transparent" Grid.Column="5" Grid.Row="0"/>
+                <TextBox x:Name="txtBrand" IsReadOnly="true" Foreground="White" BorderBrush="White" Background="Transparent"
+                 Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="txtGroup" IsReadOnly="true" Foreground="White" BorderBrush="White" Background="Transparent"
+                 Grid.Column="3" Grid.Row="1"/>
+                <TextBox x:Name="txtLot" IsReadOnly="true" Foreground="White" BorderBrush="White" Background="Transparent"
+                 Grid.Column="5" Grid.Row="1"/>
+                <TextBox x:Name="txtLastPrintedbarcode" BorderBrush="White" Background="Transparent" Grid.Column="1"
+                 Grid.Row="2" Grid.ColumnSpan="3"/>
+                <Label Foreground="Blue" Grid.Row="0" Grid.Column="0" Content="Batch No :"/>
+                <Label Foreground="Blue" Grid.Row="0" Grid.Column="2" Content="Product Name :"/>
+                <Label Foreground="Blue" Grid.Row="0" Grid.Column="4" Content="SKU No :"/>
+                <Label Foreground="Blue" Grid.Row="1" Grid.Column="0" Content="Brand :"/>
+                <Label Foreground="Blue" Grid.Row="1" Grid.Column="2" Content="Group :"/>
+                <Label Foreground="Blue" Grid.Row="1" Grid.Column="4" Content="Lot :"/>
+                <Label Foreground="Blue" Grid.Row="2" Grid.Column="0" Content="Last Barcode :"/>
+                <Grid Row="2" Column="5" HorizontalAlignment="Left">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="115"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="btnClear_Click" x:Name="btnClear" Content="CLEAR" Grid.Column="0"
+                  ToolTip="Press Alt+C for Clear"/>
+                    <Button Click="btnExit_Click" x:Name="btnExit" Content="EXIT" Grid.Column="1"
+                  ToolTip="Press Alt+E for Back"/>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border BorderBrush="White" Style="{StaticResource BorderStyle}" Margin="0,220,0,20"
+            VerticalAlignment="Stretch" HorizontalAlignment="Center">
+            <Grid Margin="7">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="{Binding}"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontFamily="Calibri" Grid.Row="0" Grid.Column="0" Text="SCANNED COUNT" Foreground="Orange"
+                   FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="70"/>
+                <TextBlock Name="txtScanCount" FontFamily="Calibri" Grid.Row="1" Grid.Column="0" Text="0/0" Foreground="Green"
+                   FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="150"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

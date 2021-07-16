@@ -1,0 +1,114 @@
+CREATE TABLE [dbo].[tbl_ProductionPlan](
+	[Refno] [int] IDENTITY(1,1) NOT NULL,
+	[ProductCode] [varchar](100) NULL,
+	[ProductName] [varchar](100) NULL,
+	[ModelName] [varchar](100) NULL,
+	[BrandName] [varchar](100) NULL,
+	[Mixgroup] [varchar](100) NULL,
+	[PlannedQty] [varchar](50) NULL,
+	[SubQty] [varchar](50) NULL,
+	[Lot] [varchar](50) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreatedOn] [datetime] NULL,
+	[ModifiedBy] [varchar](50) NULL,
+	[ModifiedOn] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+
+
+alter PROC [dbo].[Proc_ProductPlan]
+(
+@RefNo int=null,
+@ProductCode varchar(100)=null,
+@ProductName varchar(100)=null,
+@ModelName varchar(100)=null,
+@BrandName varchar(100)=null,
+@Mixgroup varchar(100)=null,
+@PlannedQty varchar(100)=null,
+@SubQty varchar	(100)=null,
+@Lot varchar(100)=null,
+@CreatedBy varchar(100)=null,
+@Type varchar(100)=null,
+@Result varchar(100)='' output
+)
+as
+if(@Type ='Save')
+begin
+begin try
+if(exists(select * from [dbo].[tbl_ProductionPlan] where ProductCode=@ProductCode and ProductName=@ProductName))
+begin
+set @Result='PRODUCT Plan ALREADY EXISTS'
+--return
+end
+
+insert into [dbo].[tbl_ProductionPlan](ProductCode,ProductName,ModelName,BrandName,Mixgroup,PlannedQty,SubQty,Lot,CreatedBy,CreatedOn)values
+(@ProductCode,@ProductName,@ModelName,@BrandName,@Mixgroup,@PlannedQty,@SubQty,@Lot,@CreatedBy,GETDATE())
+set @Result='Saved'
+end try 
+begin catch
+set @Result=ERROR_MESSAGE()
+end catch
+end
+if(@Type ='Update')
+begin
+begin try
+update [dbo].[tbl_ProductionPlan] set ProductCode=@ProductCode,ProductName=@ProductName,ModelName=@ModelName,BrandName=@BrandName,Mixgroup=@Mixgroup,PlannedQty=@PlannedQty,SubQty=@SubQty,Lot=@Lot,ModifiedBy =@CreatedBy,Modifiedon=getdate() where RefNo=@RefNo 
+set @Result='Updated'
+end try 
+begin catch
+set @Result=ERROR_MESSAGE()
+end catch
+end
+if(@Type ='Delete')
+begin
+begin try
+delete  [dbo].[tbl_ProductionPlan] where RefNo=@RefNo 
+set @Result='Deleted'
+end try 
+begin catch
+set @Result=ERROR_MESSAGE()
+end catch
+end
+if(@Type ='LoadDetails')
+begin
+begin try
+Select row_number() over(order by (select 1))  as 'SLNO', ProductCode,ProductName,ModelName,BrandName,Mixgroup,PlannedQty,SubQty,Lot,RefNo from  [dbo].[tbl_ProductionPlan] order by Refno
+end try 
+begin catch
+select ERROR_MESSAGE() as 'Error'
+end catch
+end
+
+if(@Type ='LoadModelName')
+begin
+begin try
+Select ModelName from  [dbo].[tbl_ModelMaster] order by ModelName
+end try 
+begin catch
+select ERROR_MESSAGE() as 'Error'
+end catch
+end
+
+if(@Type ='LoadProductcode')
+begin
+begin try
+Select ProductCode from  [dbo].tbl_ProductDefinition order by ProductCode
+end try 
+begin catch
+select ERROR_MESSAGE() as 'Error'
+end catch
+end
+
+if(@Type ='LoadProductName')
+begin
+begin try
+Select ProductName from  [dbo].tbl_ProductDefinition where ProductCode=@ProductCode
+end try 
+begin catch
+select ERROR_MESSAGE() as 'Error'
+end catch
+end
+
+

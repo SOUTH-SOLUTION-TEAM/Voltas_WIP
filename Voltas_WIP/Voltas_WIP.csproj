@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0D5B121-C04A-424D-8041-B814A4F5E4E0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Voltas_WIP</RootNamespace>
+    <AssemblyName>Voltas_WIP</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <EnableSecurityDebugging>true</EnableSecurityDebugging>
+    <Install>False</Install>
+    <StartAction>URL</StartAction>
+    <HostInBrowser>true</HostInBrowser>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <TargetZone>Internet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>True</SignManifests>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BUSINESS_LAYER">
+      <HintPath>..\BUSINESS_LAYER\bin\Debug\BUSINESS_LAYER.dll</HintPath>
+    </Reference>
+    <Reference Include="ENTITY_LAYER">
+      <HintPath>..\ENTITY_LAYER\bin\Debug\ENTITY_LAYER.dll</HintPath>
+    </Reference>
+    <Reference Include="SATOPrinterAPI">
+      <HintPath>..\SATOPrinterAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Sato_Network_Client_DLL">
+      <HintPath>..\Sato_Network_Client_DLL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Compile Include="Masters\GroupMaster.xaml.cs">
+      <DependentUpon>GroupMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\IPConfigurationMaster.xaml.cs">
+      <DependentUpon>IPConfigurationMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ModelMaster.xaml.cs">
+      <DependentUpon>ModelMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ProductDefinition.xaml.cs">
+      <DependentUpon>ProductDefinition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\RepairMaster.xaml.cs">
+      <DependentUpon>RepairMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ShiftMaster.xaml.cs">
+      <DependentUpon>ShiftMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\StationMaster.xaml.cs">
+      <DependentUpon>StationMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\TestMaster.xaml.cs">
+      <DependentUpon>TestMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\UserMaster.xaml.cs">
+      <DependentUpon>UserMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp\ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\EST_Test.xaml.cs">
+      <DependentUpon>EST_Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Master_Barcode_Printing.xaml.cs">
+      <DependentUpon>Master_Barcode_Printing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Motor_CrossCheeck.xaml.cs">
+      <DependentUpon>Motor_CrossCheeck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Packing.xaml.cs">
+      <DependentUpon>Packing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Production_Label.xaml.cs">
+      <DependentUpon>Production_Label.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Production_Plan.xaml.cs">
+      <DependentUpon>Production_Plan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Repair.xaml.cs">
+      <DependentUpon>Repair.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Serial_and_MRP_Label.xaml.cs">
+      <DependentUpon>Serial_and_MRP_Label.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Slave_Barcode_Printing.xaml.cs">
+      <DependentUpon>Slave_Barcode_Printing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction\Visual_Test.xaml.cs">
+      <DependentUpon>Visual_Test.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Masters\GroupMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\IPConfigurationMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\ModelMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\ProductDefinition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\RepairMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\ShiftMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\StationMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\TestMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Masters\UserMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommonClasses\CommonMethods.cs" />
+    <Compile Include="CommonClasses\CommonVariable.cs" />
+    <Page Include="StartUp\ChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StartUp\ForgotPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StartUp\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StartUp\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Transaction\DashBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\EST_Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Master_Barcode_Printing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Motor_CrossCheeck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Packing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Production_Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Production_Plan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Repair.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Serial_and_MRP_Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Slave_Barcode_Printing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Transaction\Visual_Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Voltas_WIP_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Report\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ChangePassword.jpg" />
+    <Resource Include="Images\forget-password .png" />
+    <Resource Include="Images\LogOut.png" />
+    <Resource Include="Images\SatoLogo.png" />
+    <Resource Include="Images\sql-server-icon-png-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\HorizantalLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Voltas-Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Back.png" />
+  </ItemGroup>
+  <PropertyGroup>
+    <StartArguments />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Voltas_WIP_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EA4704ACD3AF3DC3D3C947A735C1D3101D79A222</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
